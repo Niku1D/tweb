@@ -1,0 +1,23 @@
+@model RentCar.Api.Models.RentType
+
+@{
+    ViewBag.Title = "Edit Rent Type";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h2>Edit Rent Type</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name, new { @value = @Model.Name })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+}
+
+@Html.ActionLink("Back to List", "AdminGetAllRentTypes")

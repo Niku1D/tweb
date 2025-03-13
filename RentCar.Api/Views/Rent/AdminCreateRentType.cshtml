@@ -1,0 +1,23 @@
+@model RentCar.Api.Models.RentType
+
+@{
+    ViewBag.Title = "Create Rent Type";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h2>Create Rent Type</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+}
+
+@Html.ActionLink("Back to List", "AdminGetAllRentTypes")

@@ -1,0 +1,38 @@
+@{
+    ViewBag.Title = "View Cars";
+}
+<div class="container">
+    <h2>Available Cars</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h4>Model A</h4></div>
+                <div class="panel-body">
+                    <img src="path/to/image.jpg" alt="Model A" class="img-responsive" />
+                    <p>$50 per day</p>
+                    <a href="@Url.Action("BookCar", "Home", new { carModel = "Model A" })" class="btn btn-success">Rent Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h4>Model B</h4></div>
+                <div class="panel-body">
+                    <img src="path/to/image.jpg" alt="Model B" class="img-responsive" />
+                    <p>$60 per day</p>
+                    <a href="@Url.Action("BookCar", "Home", new { carModel = "Model B" })" class="btn btn-success">Rent Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h4>Model C</h4></div>
+                <div class="panel-body">
+                    <img src="path/to/image.jpg" alt="Model C" class="img-responsive" />
+                    <p>$70 per day</p>
+                    <a href="@Url.Action("BookCar", "Home", new { carModel = "Model C" })" class="btn btn-success">Rent Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

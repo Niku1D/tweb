@@ -1,0 +1,41 @@
+@model IEnumerable<RentCar.Api.Models.RentOffer>
+
+@{
+    ViewBag.Title = "Rent Offers";
+}
+
+<h2>Rent Offers</h2>
+
+<p>
+    @Html.ActionLink("Create New Rent Offer", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Car Name</th>
+        <th>Car Year</th>
+        <th>Fuel Type</th>
+        <th>Gear Box Type</th>
+        <th>Horsepower</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CarName</td>
+            <td>@item.CarYear</td>
+            <td>@item.FuelType</td>
+            <td>@item.GearBoxType</td>
+            <td>@item.Horsepower</td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

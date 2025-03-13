@@ -1,0 +1,35 @@
+@model List<RentCar.Api.Models.RentType>
+
+@{
+    ViewBag.Title = "Rent Types";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h2>Rent Types</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AdminCreateRentType")
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>
+                @Html.ActionLink("Edit", "AdminEditRentType", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "AdminDeleteRentType", new { id = item.Id })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

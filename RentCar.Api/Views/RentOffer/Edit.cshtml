@@ -1,0 +1,52 @@
+@model RentCar.Api.Models.RentOffer
+
+@{
+    ViewBag.Title = "Edit Rent Offer";
+}
+
+<h2>Edit Rent Offer</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CarName)
+        @Html.EditorFor(model => model.CarName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.CarName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CarYear)
+        @Html.EditorFor(model => model.CarYear, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.CarYear)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FuelType)
+        @Html.DropDownListFor(model => model.FuelType, new SelectList(ViewBag.FuelTypes, "Value", "Text"), "-- Select Fuel Type --", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.FuelType)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.GearBoxType)
+        @Html.DropDownListFor(model => model.GearBoxType, new SelectList(ViewBag.GearBoxTypes, "Value", "Text"), "-- Select Gear Box Type --", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.GearBoxType)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Horsepower)
+        @Html.EditorFor(model => model.Horsepower, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Horsepower)
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(model => model.Price)
+        @Html.EditorFor(model => model.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Price)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+}
+
+@Html.ActionLink("Back to List", "Index")

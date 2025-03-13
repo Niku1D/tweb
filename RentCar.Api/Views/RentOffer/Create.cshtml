@@ -1,0 +1,86 @@
+@using RentCar.Api.Contracts
+@model RentCar.Api.Contracts.CreateRentOfferRequest
+
+@{
+    ViewBag.Title = "Create Rent Offer";
+}
+
+<div class="container">
+    <h2 class="text-center my-4">Create Rent Offer</h2>
+
+
+    @using (Html.BeginForm("Create", "RentOffer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <!-- Rent Offer Fields (CarName, CarYear, etc.) -->
+
+        <!-- Car Name -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.RentOffer.CarName, new { @class = "control-label" })
+            @Html.EditorFor(model => model.RentOffer.CarName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.RentOffer.CarName, "", new { @class = "text-danger" })
+        </div>
+
+        <!-- Car Year -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.RentOffer.CarYear, new { @class = "control-label" })
+            @Html.EditorFor(model => model.RentOffer.CarYear, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.RentOffer.CarYear, "", new { @class = "text-danger" })
+        </div>
+
+        <!-- Additional fields for FuelType, GearBoxType, etc. -->
+
+        <!-- File Upload for Multiple Photos -->
+        <div class="form-group">
+            @Html.LabelFor(model => model.Photos, new { @class = "control-label" })
+            <input type="file" name="Photos" class="form-control" multiple />
+            @Html.ValidationMessageFor(model => model.Photos, "", new { @class = "text-danger" })
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group text-center">
+            <button type="submit" class="btn btn-success btn-lg">Create Rent Offer</button>
+        </div>
+
+        <!-- Back Link -->
+        <div class="form-group text-center">
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary btn-lg" })
+        </div>
+    }
+
+</div>
+
+<style>
+    h2 {
+        font-size: 2rem;
+        color: #333;
+    }
+    .form-group label {
+        font-weight: bold;
+        color: #555;
+    }
+    .form-control {
+        border-radius: 0.25rem;
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+    .btn {
+        border-radius: 0.25rem;
+        font-size: 1.1rem;
+        padding: 10px 20px;
+    }
+    .btn-lg {
+        font-size: 1.25rem;
+    }
+    .text-danger {
+        font-size: 0.875rem;
+    }
+    .text-center {
+        text-align: center;
+    }
+    .control-label {
+        font-size: 1rem;
+        color: #333;
+    }
+</style>

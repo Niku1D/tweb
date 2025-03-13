@@ -1,0 +1,56 @@
+@model RentCar.Api.Models.RentOffer
+
+@{
+    ViewBag.Title = "Rent Offer Details";
+}
+
+<div class="container">
+    <h2 class="text-center my-4">Rent Offer Details</h2>
+
+    <div class="row">
+        <!-- Car Name -->
+        <div class="col-md-6">
+            <h3>@Model.CarName</h3>
+            <p><strong>Year:</strong> @Model.CarYear</p>
+            <p><strong>Fuel Type:</strong> @Model.FuelType</p>
+            <p><strong>Gearbox Type:</strong> @Model.GearBoxType</p>
+            <p><strong>Horsepower:</strong> @Model.Horsepower HP</p>
+            <p><strong>Price:</strong> $@Model.Price</p>
+        </div>
+
+        <!-- Photos -->
+        <div class="col-md-6">
+            <h4>Photos</h4>
+            @foreach (var photoPath in Model.PhotoPaths)
+            {
+                <img src="" alt="Car photo" class="img-fluid mb-3" />
+            }
+        </div>
+    </div>
+
+    <!-- Back Link -->
+    <div class="form-group text-center">
+        <a href="@Url.Action("Index", "RentOffer")" class="btn btn-secondary btn-lg">Back to List</a>
+    </div>
+</div>
+
+<style>
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    h3 {
+        color: #2c3e50;
+    }
+    p {
+        font-size: 1.1rem;
+        color: #34495e;
+    }
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+    .form-group {
+        margin-top: 30px;
+    }
+</style>

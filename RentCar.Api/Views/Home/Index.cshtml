@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+<div class="jumbotron text-center">
+    <h1>Welcome to Our Car Rental Service!</h1>
+    <p>Rent a car today and explore the city in style.</p>
+    <a href="@Url.Action("ViewCar", "Home")" class="btn btn-primary btn-lg">View Available Cars</a>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default feature-panel">
+            <div class="panel-heading">
+                <h3>Why Choose Us?</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li>Affordable Prices</li>
+                    <li>Wide Range of Cars</li>
+                    <li>24/7 Customer Support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default feature-panel">
+            <div class="panel-heading">
+                <h3>How It Works</h3>
+            </div>
+            <div class="panel-body">
+                <p>Choose a car, book it online, and pick it up at your convenience. It's that easy!</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default feature-panel">
+            <div class="panel-heading">
+                <h3>Our Cars</h3>
+            </div>
+            <div class="panel-body">
+                <p>We offer a variety of cars to suit every need: sports cars, family cars, and more!</p>
+                <a href="@Url.Action("ViewCar", "Home")" class="btn btn-success">See Cars</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Styling for uniform panel dimensions */
+    .feature-panel {
+        height: 100%; /* Make all panels equal height */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .panel-body {
+        flex-grow: 1; /* Ensure content is evenly spaced */
+    }
+
+    .panel {
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        height: 200px; /* Set fixed height */
+    }
+
+    .panel:hover {
+        transform: translateY(-5px);
+    }
+
+    .panel-heading {
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        border-top-left-radius: 250px;
+        border-top-right-radius: 250px;
+    }
+
+    .btn {
+        width: 34%; /* Ensure buttons take full width */
+        border-radius: 5px;
+    }
+</style>
